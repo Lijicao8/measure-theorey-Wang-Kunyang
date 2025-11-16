@@ -267,7 +267,7 @@ L^{\infty}(X,\mathscr{A},\mu)=\{\,f:\ \|f\|_{\infty}<\infty\,\}.
 
 
 
-\section{绝对连续与奇异的概念}
+\section{测度的绝对连续与奇异的概念}
 \begin{definition}[绝对连续]
 设 $(X,\mathscr A)$ 为可测空间，$\mu$ 与 $\nu$ 为其上的符号测度.若对一切
 $E\in\mathscr A$，都有
@@ -284,3 +284,37 @@ $E\in\mathscr A$，都有
 \]
 则有 $\nu\ll\mu$.
 \end{example}
+
+
+\begin{theorem}[特殊情形下绝对连续的充要条件]
+设 $(X,\mathscr A,\mu)$ 是测度空间，$\nu$ 是 $(X,\mathscr A)$ 上的有限符号测度.
+则 $\nu\ll\mu$ 的充要条件是：对任意 $\varepsilon>0$，存在 $\delta>0$，使得
+对所有 $A\in\mathscr A$，若 $\mu(A)<\delta$ 则有 $|\nu|(A)<\varepsilon$.
+\end{theorem}
+
+
+
+
+\begin{definition}[相互奇异]
+设 $(X,\mathscr A)$ 为可测空间，$\mu$ 与 $\nu$ 为符号测度.若存在
+$A\in\mathscr A$，使
+\[
+|\mu|(A)=0\quad\text{且}\quad |\nu|(A^\complement)=0,
+\]
+则称 $\mu$ 与 $\nu$ 相互奇异（亦称 $\mu$ 关于 $\nu$ 奇异），记作 $\mu\perp\nu$.
+\end{definition}
+
+
+
+
+\begin{theorem}[特殊情形下相互奇异的充要条件]
+设 $(X,\mathscr A,\mu)$ 为测度空间，$\nu$ 是 $(X,\mathscr A)$ 上的符号测度.
+则 $\nu \perp \mu$ 的充要条件是：
+\[
+\forall\,\varepsilon>0,\ \exists\,E\in\mathscr A \ \text{使得}\ 
+\mu(E)<\varepsilon \ \text{且}\ |\nu|(E^\complement)<\varepsilon .
+\]
+\end{theorem}
+
+
+\section{Radon-Nikodym 定理}
