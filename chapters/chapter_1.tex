@@ -82,7 +82,7 @@ $$\mu(\overline{\lim}A_n)\geqslant\overline{\lim}\mu(A_n).$$
 
 
 \begin{theorem}[简单函数逼近非负可测函数]
-    设$f$是可测集$E$上的非负可测函数，则存在一列非负简单函数 $f_n,n\in\mathbb{N}$，使得在$E$上$f_{n\nearrow}f$.
+    设$f$是可测集$E$上的非负可测函数，则存在一列非负简单函数 $f_n,n\in\mathbb{N}$，使得在$E$上$f_{n}\uparrow f$.
 \end{theorem}
 
 \begin{theorem}[Eropob]
@@ -102,4 +102,63 @@ $$\mu(\overline{\lim}A_n)\geqslant\overline{\lim}\mu(A_n).$$
 \begin{theorem}[F.Riesz]
     若$f_n\xrightarrow{\mu}f$，则有子列$\{f_{n_k}\}_{k=1}^\infty$ ~$\mu-a.e.$收敛到$f$.
 \end{theorem}
+
+
+
+\begin{theorem}[Levi]\label{thm:1.2.7}
+设 $k\in\mathbb{N}$，$f_k$ 可测且 $f_k\to f\ (k\to\infty)$.则
+\begin{enumerate}
+  \item 若 $\exists\,\varphi\in L(X,\mathscr{A},\mu)$ 使得 $f_k\uparrow f$ 且 $\varphi\le f_k$（对一切 $k$），则
+  \[
+    \int_X f_k\,\mathrm d\mu \uparrow \int_X f\,\mathrm d\mu .
+  \]
+  \item 若 $\exists\,\varphi\in L(X,\mathscr{A},\mu)$ 使得 $f_k\downarrow f$ 且 $\varphi\ge f_k$（对一切 $k$），则
+  \[
+    \int_X f_k\,\mathrm d\mu \downarrow \int_X f\,\mathrm d\mu .
+  \]
+\end{enumerate}
+\end{theorem}
+
+\begin{theorem}[Fatou]\label{thm:1.2.8}
+设 $k\in\mathbb{N}$，$f_k$ 可测，则
+\begin{enumerate}
+  \item 若 $\exists\,\varphi\in L(X,\mathscr{A},\mu)$ 使得 $\varphi\ge f_k$（对一切 $k$），则
+  \[
+    \int_X \liminf_{k\to\infty} f_k\,\mathrm d\mu
+    \le
+    \liminf_{k\to\infty}\int_X f_k\,\mathrm d\mu .
+  \]
+  \item 若 $\exists\,\varphi\in L(X,\mathscr{A},\mu)$ 使得 $\varphi\le f_k$（对一切 $k$），则
+  \[
+    \int_X \limsup_{k\to\infty} f_k\,\mathrm d\mu
+    \ge
+    \limsup_{k\to\infty}\int_X f_k\,\mathrm d\mu .
+  \]
+\end{enumerate}
+\end{theorem}
+
+\begin{theorem}[Lebesgue 支配收敛]\label{thm:1.2.9}
+设 $f_k$ 为 $\mathscr{A}$-可测并满足 $f_k\to f$.若存在 $\varphi\in L(X,\mathscr{A},\mu)$ 使得
+$|f_k|\le \varphi$（对所有 $k$），则
+\[
+  \int_X f_k\,\mathrm d\mu \longrightarrow \int_X f\,\mathrm d\mu \qquad (k\to\infty).
+\]
+\end{theorem}
+
+\begin{theorem}\label{thm:1.2.10}
+设 $f\in L(X,\mathscr{A},\mu)$，则对任意 $\varepsilon>0$，存在 $\delta>0$，使得对一切 $A\in\mathscr{A}$，
+只要 $\mu(A)<\delta$，就有
+\[
+  \int_X |f|\,\chi_A\,\mathrm d\mu < \varepsilon .
+\]
+\end{theorem}
+
+\noindent\textbf{注}\; 以后我们把 $\displaystyle\int_X f\chi_A\,\mathrm d\mu$ 写作 $\displaystyle\int_A f\,\mathrm d\mu$.
+
+
+
+
+
+
+
 
