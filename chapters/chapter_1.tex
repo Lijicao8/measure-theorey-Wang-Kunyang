@@ -68,4 +68,23 @@ $$\mu(\overline{\lim}A_n)\geqslant\overline{\lim}\mu(A_n).$$
 
 
 \section{可测函数、积分}
+\begin{definition}[可测函数]
+    设$(X,\mathscr{A})$是可测空间，$E\in\mathscr{A}$. 设$f$是$E$上的广义实值函数. 如果对任意$a\in\mathbb{R}$，$\{x\in E: f(x)>a\}\in\mathscr{A}$，则称$f$是$E$上的$\mathscr{A}$可测函数.
+\end{definition}
 
+\begin{definition}[简单函数]
+    设$(X,\mathscr{A})$是可测空间，$E_1,\dots,E_n$是$\mathscr{A}$中$n$个两两不交的集合，使得$\cup_{i=1}^nE_i=X$，称
+    \begin{equation*}
+        \phi(x)=\sum_{i=1}^n a_i\mathcal{X}_{E_i}(x),~~x\in X
+    \end{equation*}
+    为简单函数.
+\end{definition}
+
+
+\begin{theorem}[简单函数逼近非负可测函数]
+    设$f$是可测集$E$上的非负可测函数，则存在一列非负简单函数 $f_n,n\in\mathbb{N}$，使得在$E$上$f_{n\nearrow}f$.
+\end{theorem}
+
+\begin{theorem}[Eropob]
+    设$(X,\mathscr{A},\mu)$是测度空间，$E\in\mathscr{A}$且$\mu(E)<\infty$. 设$f_n$是$E$上的可测的$\mu-a.e.$有限函数.若$\{f_n\}$在$E$上$\mu-a.e.$收敛，那么，对任意$\epsilon>0$，存在$A\subset E,A\in\mathscr{A}$，使得$\mu(E\backslash A)<\epsilon$并且$\{f_n\}$在$A$上一致收敛.
+\end{theorem}
