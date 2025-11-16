@@ -550,3 +550,59 @@ $X=\bigcup_{i=1}^{\infty}E_i$，则称 $\mu^{*}$ 是 $\sigma$ 有限的.
 
 \medskip
 在小节\ref{subsectionLebesgue-Stieltjes外测度}，\ref{subsectionLebesgue-Stieltjes积分}中我们已经看到一个由外测度产生测度的实例. 在这个例子中，当 $f$ 取恒等函数，即 $f(x)=x$ 时，我们就回到了寻常的 Lebesgue 测度.
+
+
+
+
+\section{乘积测度和Fubini定理}
+我们构造两种乘积测度，一种是根据集合$\sigma$代数构造的，另一种根据外测度诱导得到.
+
+
+\begin{definition}[可测矩形]
+设 $(X,\mathscr{A},\mu)$ 和 $(Y,\mathscr{B},\nu)$ 是两个测度空间。
+令 $X\times Y$ 表示 $X$ 和 $Y$ 的乘积，即
+\[
+X\times Y = \{(x,y): x\in X,\ y\in Y\}.
+\]
+
+\begin{enumerate}
+  \item 若 $A\subset X,\ B\subset Y$，则 $A\times B$ 叫作 $X\times Y$ 的矩形。
+        当 $A\in\mathscr{A},\ B\in\mathscr{B}$ 时，$A\times B$ 叫作可测矩形。
+        用字母 $\mathscr{R}$ 表示可测矩形之全体，用
+        $\mathscr{A}\times\mathscr{B}$ 表示 $X\times Y$ 上的包含 $\mathscr{R}$ 的最小 $\sigma$ 代数。
+  \item 在 $\mathscr{R}$ 上定义函数 $\lambda$：
+        \[
+        \lambda(A\times B) = \mu(A)\nu(B),\qquad A\times B\in\mathscr{R},
+        \]
+        可以把 $\lambda(A\times B)$ 叫作 $A\times B$ 的面积。
+\end{enumerate}
+
+\end{definition}
+
+
+
+\begin{definition}[乘积空间的外测度]对于每个集 $E\subset X\times Y$，令
+\[
+\lambda^{*}(E)
+= \inf\left\{
+    \sum_{k=1}^{\infty}\lambda(I_k) :\ I_k\in\mathscr{R},\
+    \bigcup_{k=1}^{\infty} I_k \supset E
+  \right\}.
+\]
+\end{definition}
+
+\begin{theorem}
+    $\boldsymbol{\lambda}^{*}$是 $X\times Y$ 上 的 外 测 度 , 且
+$$\lambda^*(I)=\lambda(I),\forall I\in\mathscr{R}.$$
+\end{theorem}
+
+
+设$\mathscr{M}$是上述外测度诱导的测度，则可以定义乘积测度空间：
+\begin{definition}[乘积测度空间]
+    上述$(X\times Y,\mathscr{M},\lambda)$,和$(X\times Y,\mathscr{A}\times\mathscr{B},\lambda)$都叫作$(X,\mathscr{A},\mu)$和
+$( Y, \mathscr{B} , \nu ) \textbf{的 乘 积 测 度 空 间 ; 相 应 地  }\lambda = \mu \times \nu$叫乘积测度.
+\end{definition}
+
+\begin{theorem}[两种乘积测度空间的关系]
+    $$\mathscr{A}\times \mathscr{B}\subset\mathscr{M}.$$
+\end{theorem}
