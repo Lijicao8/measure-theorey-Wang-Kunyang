@@ -88,3 +88,17 @@ $$\mu(\overline{\lim}A_n)\geqslant\overline{\lim}\mu(A_n).$$
 \begin{theorem}[Eropob]
     设$(X,\mathscr{A},\mu)$是测度空间，$E\in\mathscr{A}$且$\mu(E)<\infty$. 设$f_n$是$E$上的可测的$\mu-a.e.$有限函数.若$\{f_n\}$在$E$上$\mu-a.e.$收敛，那么，对任意$\epsilon>0$，存在$A\subset E,A\in\mathscr{A}$，使得$\mu(E\backslash A)<\epsilon$并且$\{f_n\}$在$A$上一致收敛.
 \end{theorem}
+
+
+\begin{definition}[依测度收敛]
+    设$(X,\mathscr{A},\mu)$是测度空间，$f$和$f_n$是$X$上$\mathscr{A}$可测函数，若
+    \begin{equation*}
+        \forall\delta>0,\lim_{n\to\infty}\mu(\{x\in X{:}|f(x)-f_n(x)\mid\geqslant\delta\})=0,
+    \end{equation*}
+    则称$f_n$依测度$\mu$收敛到$f$，记作$f_n\xrightarrow{\mu}f.$
+\end{definition}
+
+
+\begin{theorem}[F.Riesz]
+    若$f_n\xrightarrow{\mu}f$，则有子列$\{f_{n_k}\}_{k=1}^\infty$ ~~$\mu-a.e.$收敛到$f$.
+\end{theorem}
