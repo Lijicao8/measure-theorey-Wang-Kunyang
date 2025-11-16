@@ -435,8 +435,8 @@ $X=\bigcup_{i=1}^{\infty}E_i$，则称 $\mu^{*}$ 是 $\sigma$ 有限的.
     设 $\mu^{*}$ 是 $X$ 上的外测度.若 $E\subset X$ 满足下述以数学家 Carathéodory 的名字命名的条件：
 
 \[
-\text{(C)}\qquad \forall A\subset X,\ \mu^{*}(A)
-= \mu^{*}(A\cap E) + \mu^{*}\bigl(A\cap E^{c}\bigr),
+    \forall A\subset X,\ \mu^{*}(A)
+    = \mu^{*}(A\cap E) + \mu^{*}\bigl(A\cap E^{c}\bigr),
 \]
 
 则称 $E$ 为 $\mu^{*}$ 可测集，简称为可测集.
@@ -454,3 +454,78 @@ $X=\bigcup_{i=1}^{\infty}E_i$，则称 $\mu^{*}$ 是 $\sigma$ 有限的.
 
 
 注意，外测度是对$X$的所有子集都定义的，我们把所有满足Carathéodory条件的子集结合起来，记为集合$\mathscr{A}$，恰好是一个$\sigma$代数，那么$\mu^*$限制在其上，就是测度. 除此之外，这个测度还是完全的！即零测集的子集是可测的.
+
+
+\begin{definition}[外测度的正则性]
+    设$\mu^*$是$X$上的外测度，$(X,\mathscr{A},\mu^*)$是$\mu^*$诱导的测度空间. 若对任意$E\subset X$，存在$A\in\mathscr{A}\supset E$，使得
+    \begin{equation*}
+        \mu^*(E)=\mu(A),
+    \end{equation*}
+    则称$\mu^*$是正则的.
+\end{definition}
+
+
+
+
+
+\begin{definition}[距离外测度]
+    设 $(X,d)$ 是距离空间，$\mu^{*}$ 是 $X$ 上的外测度.若 $\mu^{*}$ 满足下述条件：
+    $\forall\,E_1,E_2\subset X$，当
+  \[
+    \rho(E_1,E_2) := \inf\{ d(x_1,x_2) : x_1\in E_1,\ x_2\in E_2 \} > 0
+  \]
+  时
+  \[
+    \mu^{*}(E_1\cup E_2) = \mu^{*}(E_1) + \mu^{*}(E_2),
+  \]
+则称 $\mu^{*}$ 为 $X$ 上（或 $(X,d)$ 上）的距离外测度.
+\end{definition}
+
+\medskip
+
+\begin{definition}[Borel 代数]
+    设 $(X,d)$ 是距离空间.$X$ 中的全体开集生成的 $\sigma$ 代数记作 $\mathscr{B}$（即包含全体开集的最小 $\sigma$ 代数），叫 Borel 代数.
+\end{definition}
+
+\medskip
+
+\begin{theorem}
+    设 $\mu^{*}$ 是距离空间 $(X,d)$ 上的距离外测度，$\mu^{*}$ 可测集之全体记为 $\mathscr{A}$，则 $\mathscr{A}\subset \mathscr{B}$.
+\end{theorem}
+
+
+
+
+\subsection{$\mathbb{R}$上的 Lebesgue-Stieltjes 外测度}
+
+设$f$是$\mathbb{R}$上的单调递增实值函数，对于有限区间$(a,b]\subset\mathbb{R},$定义
+\begin{equation*}
+    \lambda_f((a,b])=f(b)-f(a),
+\end{equation*}
+当$a=b$时，认为$(a,b]=\emptyset$.
+
+对于 $A\subset\mathbb{R}$，定义
+\[
+\Lambda_f^{*}(A)
+= \inf\left\{
+    \sum_{k=1}^{\infty}\lambda_f\bigl((a_k,b_k]\bigr)
+    : \bigcup_{k=1}^{\infty}(a_k,b_k]\supset A
+  \right\}.
+\]
+
+由此定义知，$\Lambda_f^{*}(\varnothing)=0$.  
+
+那么$\Lambda_f^{*}$ 是 $\mathbb{R}$ 上的外测度.
+我们称之为由 $f$ 决定的 L-S 外测度，由它导出的测度记为 $\Lambda_f$，
+叫作由 $f$ 决定的 L-S 测度.
+
+\medskip
+
+\begin{theorem}
+    $\Lambda_f^{*}$ 是正规的距离外测度.
+\end{theorem}
+
+
+
+
+\subsection{Lebesgue-Stieltjes积分}
