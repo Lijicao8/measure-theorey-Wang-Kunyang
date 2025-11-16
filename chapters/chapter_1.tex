@@ -496,7 +496,7 @@ $X=\bigcup_{i=1}^{\infty}E_i$，则称 $\mu^{*}$ 是 $\sigma$ 有限的.
 
 
 
-\subsection{$\mathbb{R}$上的 Lebesgue-Stieltjes 外测度}
+\subsection{$\mathbb{R}$上的 Lebesgue-Stieltjes 外测度}\label{subsectionLebesgue-Stieltjes外测度}
 
 设$f$是$\mathbb{R}$上的单调递增实值函数，对于有限区间$(a,b]\subset\mathbb{R},$定义
 \begin{equation*}
@@ -528,4 +528,25 @@ $X=\bigcup_{i=1}^{\infty}E_i$，则称 $\mu^{*}$ 是 $\sigma$ 有限的.
 
 
 
-\subsection{Lebesgue-Stieltjes积分}
+\subsection{Lebesgue-Stieltjes积分}\label{subsectionLebesgue-Stieltjes积分}
+设 $f$ 是 $\mathbb{R}$ 上的实值单调增函数，$\Lambda_f^{*}$ 是由 $f$ 决定的 L-S 外测度，它导出测度空间 $(\mathbb{R},\mathscr{A},\Lambda_f)$.我们已经证明 $\Lambda_f^{*}$ 可测集全体一 $\sigma$ 代数 $\mathscr{A}$，包含着 Borel 集的全体一 $\sigma$ 代数 $\mathscr{B}$.将 $\Lambda_f$ 限制在 $\mathscr{B}$ 上，$(\mathbb{R},\mathscr{B},\Lambda_f)$ 亦为一测度空间.
+
+由定理 1.6.4 的证明看到，
+\[
+\forall A\in\mathscr{A},\ \exists B\in\mathscr{B},\ A = B\setminus Z,\ \Lambda_f(Z)=0.
+\]
+由此可见，$\mathscr{A}$ 与 $\mathscr{B}$ 实际上并不差多少，然而 $\mathscr{B}$ 的结构比 $\mathscr{A}$ 明白得多.
+
+我们说到 L-S 积分指的是测度空间 $(\mathbb{R},\mathscr{A},\Lambda_f)$ 或 $(\mathbb{R},\mathscr{B},\Lambda_f)$ 上的积分，其中 $\Lambda_f$ 是由一个单调增加有限实值函数导出的 L-S 测度.
+
+\medskip
+\begin{theorem}[Riemann--Stieltjes和抽象积分之间的联系]
+    设 $f$ 是 $\mathbb{R}$ 上单调增右连续实值函数，$g$ 是 $\mathbb{R}$ 上的有界 $\mathscr{B}$ 可测函数.若在有限区间 $[a,b]$ 上 Riemann--Stieltjes 积分 $\displaystyle \int_a^b g\,df$ 存在，则
+\[
+\int_{\mathbb{R}} g\chi_{(a,b)}\,d\Lambda_f
+    = \int_a^b g\,df .
+\]
+\end{theorem}
+
+\medskip
+在小节\ref{subsectionLebesgue-Stieltjes外测度}，\ref{subsectionLebesgue-Stieltjes积分}中我们已经看到一个由外测度产生测度的实例. 在这个例子中，当 $f$ 取恒等函数，即 $f(x)=x$ 时，我们就回到了寻常的 Lebesgue 测度.
