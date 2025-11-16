@@ -406,3 +406,51 @@ $\sigma$ 有限符号测度.则存在唯一的一对 $\sigma$ 有限符号测度
 
 
 
+
+
+
+
+
+\section{外测度}
+
+\subsection{外测度诱导的测度}
+\begin{definition}[外测度]
+    设 $X$ 是集合，$\mathcal{M}=2^X$，设 $\mu^{*}$ 是 $\mathcal{M}$ 上的广义实值集函数，满足  
+\begin{enumerate}
+  \item $\forall A\in\mathcal{M},\ \mu^{*}(A)\ge 0;\ \mu^{*}(\varnothing)=0;$
+
+  \item $A\subset B \Rightarrow \mu^{*}(A)\le\mu^{*}(B);$
+
+  \item $E=\bigcup_{i=1}^{\infty}E_i \Rightarrow
+        \mu^{*}(E)\le\sum_{i=1}^{\infty}\mu^{*}(E_i),$
+\end{enumerate}
+称 $\mu^{*}$ 为 $X$ 上的外测度.性质 (3) 称为可列次加性.  
+
+若 $\mu^{*}(X)<\infty$，称 $\mu^{*}$ 为有限的；若对于每个 $i\in\mathbb{N}$ 存在 $E_i$，使得 $\mu^{*}(E_i)<\infty$ 并且
+$X=\bigcup_{i=1}^{\infty}E_i$，则称 $\mu^{*}$ 是 $\sigma$ 有限的.
+
+\end{definition}
+
+\begin{definition}[外测度诱导的测度]
+    设 $\mu^{*}$ 是 $X$ 上的外测度.若 $E\subset X$ 满足下述以数学家 Carathéodory 的名字命名的条件：
+
+\[
+\text{(C)}\qquad \forall A\subset X,\ \mu^{*}(A)
+= \mu^{*}(A\cap E) + \mu^{*}\bigl(A\cap E^{c}\bigr),
+\]
+
+则称 $E$ 为 $\mu^{*}$ 可测集，简称为可测集.
+\end{definition}
+
+
+\begin{theorem}[外测度诱导测度的合理性]
+    设$\mu^*$是$X$上的外测度，$\mathscr{A}$为$\mu^*$可测集之全体，则以下结论成立
+
+    \begin{enumerate}
+        \item $\mathscr{A}$是$\sigma$代数；
+        \item 设$\mu$是$\mu^*$在$\mathscr{A}$上的限制，则$(X,\mathscr{A},\mu)$为完全的测度空间.
+    \end{enumerate}
+\end{theorem}
+
+
+注意，外测度是对$X$的所有子集都定义的，我们把所有满足Carathéodory条件的子集结合起来，记为集合$\mathscr{A}$，恰好是一个$\sigma$代数，那么$\mu^*$限制在其上，就是测度. 除此之外，这个测度还是完全的！即零测集的子集是可测的.
