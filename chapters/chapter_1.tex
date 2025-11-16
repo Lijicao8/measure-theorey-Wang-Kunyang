@@ -1,7 +1,70 @@
-\documentclass[../master.tex]{subfiles}
-\begin{document}
+\chapter{抽象测度和积分}
+\section{测度}
+\begin{definition}[$\sigma$环和$\sigma$代数]
+    设$X$是一个集合，$\mathscr{R}$是$X$的一些子集构成的非空的族，若$\mathscr{R}$满足下述条件:
 
-\chapter{第1章标题}
-这里是正文…… 可单独用 latexmk 编译本章预览
+    （1）$A,B\in\mathscr{R}\Rightarrow A\backslash B\in\mathscr{R};$
 
-\end{document}
+    （2）$A_n\in\mathscr{R},n\in\mathbb{N}\Rightarrow \cup_{n=1}^\infty A_n\in\mathscr{R},$
+
+    \noindent 则称$\mathscr{R}$是$X$上的$\sigma$环. 若$\mathscr{A}$是$X$上的$\sigma$环使得$X\in\mathscr{A}$，则称$\mathscr{A}$为$X$上的$\sigma$代数.
+\end{definition}
+
+注意，$\sigma$环$\mathscr{R}$一定包含$\emptyset$，由于
+\begin{equation*}
+    \bigcap_{n=1}^\infty A_n=\bigcup_{n=1}^\infty A_n\setminus\bigcup_{n=1}^\infty\left(\bigcup_{k=1}^\infty A_k\backslash A_n\right),
+\end{equation*}
+因此$\mathscr{R}$对于可列交运算也封闭.但是因为$X$可以不在$\mathscr{R}$中，因此$\mathscr{R}$可以不对余运算封闭.
+
+\begin{definition}[可测空间]
+    设$\mathscr{A}$是集$X$上的$\sigma$代数，把$X$与$\mathscr{A}$合起来叫做可测空间，记作$(X,\mathscr{A})$.
+\end{definition}
+
+\begin{definition}[测度、符号测度]
+    设$\mathscr{R}$是$X$上的$\sigma$环，$\phi$是$\mathscr{R}$上的函数.如果$\phi$满足
+
+    （1）$\phi(\emptyset)=0;$
+
+    （2）$\phi$具有可列可加性，即当$A_n\in\mathscr{R},n\in\mathbb{N}$且$A_m\cap A_n=\varnothing~~(\forall m,n\in$ $\mathbf{N},m\neq n)$时 $\varphi(\bigcup_{n=1}^{\infty}A_n)=\sum_{n=1}^{\infty}\varphi\left(A_n\right)$成立.
+
+    \noindent 则称$\phi$是$\mathscr{R}$上的符号测度. 不取负值的符号测度叫做测度.
+\end{definition}
+
+
+\begin{definition}[测度空间、完全的测度空间]
+    若$(X,\mathscr{A})$是可测空间，$\mu$是$\mathscr{A}$上的测度，则称三元组$(X,\mathscr{A},\mu)$为测度空间，并称$\mathscr{A}$中的元为$\mu$可测集.
+
+    一个测度空间$(X,\mathscr{A},\mu)$如果使零测度集每个子集都可测，就叫做完全的.
+\end{definition}
+
+\begin{definition}[有限测度、$\sigma$有限测度]
+    设$(X,\mathscr{A})$是可测空间，$\phi$是$\mathscr{A}$上的符号测度.若$\phi$只取有限值，则称$\phi$为有限的.若$X$可表示为$\mathscr{A}$中可列个集$E_k$的并，$k\in\mathbb{N}$，使得$\phi(E_k)\in\mathbb{R},k\in\mathbb{N}$，则称$\phi$是$\sigma$有限的.
+\end{definition}
+
+
+\begin{proposition}[测度的一些基本性质]
+设 $\mu$ 是 $\sigma$ 环 $\mathscr{R}$ 上的测度，则以下结论成立
+
+    \begin{enumerate}
+        \item  当 $A, B \in \mathscr{R}$ 且 $A \subset B$ 时，$\mu(A) \leqslant \mu(B)$.
+
+        \item 若$\left\{A_n\right\}_{n=1}^\infty$是$\mathscr{R}$的 单 调 增 序 列 , 那 么
+    $$\mu(\lim A_n)=\lim\mu(A_n).$$
+
+    \item 若$\left\{\mathscr{A}_n\right\}_{n=1}^\infty$是$\mathscr{R}$中的单调降序列且$\mu(A_1)<\infty$,则
+
+$$\mu(\lim A_n)=\lim\mu(A_n).$$
+
+\item 若$A_n\in\mathscr{R},n\in\mathbf{N}$,那么
+$$\mu(\underline{\lim}A_n)\leqslant\underline{\lim}\mu(A_n),$$
+如果还知道 $\mu(\bigcup_{n=1}^{\infty}A_n)<\infty$,则
+$$\mu(\overline{\lim}A_n)\geqslant\overline{\lim}\mu(A_n).$$
+\end{enumerate}
+\end{proposition}
+
+
+
+
+
+
+\section{可测函数、积分}
