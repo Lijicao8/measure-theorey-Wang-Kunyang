@@ -267,7 +267,7 @@ L^{\infty}(X,\mathscr{A},\mu)=\{\,f:\ \|f\|_{\infty}<\infty\,\}.
 
 
 
-\section{测度的绝对连续与奇异的概念}
+\subsection{测度的绝对连续与奇异的概念}
 \begin{definition}[绝对连续]
 设 $(X,\mathscr A)$ 为可测空间，$\mu$ 与 $\nu$ 为其上的符号测度.若对一切
 $E\in\mathscr A$，都有
@@ -318,3 +318,91 @@ $A\in\mathscr A$，使
 
 
 \section{Radon-Nikodym 定理}
+
+本节我们将介绍两个重要的定理，一个是Lebesgue分解定理，一个是Radon-Nikodym定理. Lebesgue分解定理告诉我们，任意一个$\sigma$有限的符号测度，都可以分解为两部分，一部分是绝对连续的，另一部分是奇异的. Radon-Nikodym定理则告诉我们，若一个$\sigma$有限的符号测度关于另一个测度是绝对连续的，那么符号测度可以写成另一测度的积分的形式，这在将抽象积分转化为具体积分时有很大的作用.
+
+\begin{theorem}[Radon--Nikodym]
+设 $\mu,\nu$ 都是测度空间 $(X,\mathscr A)$ 上的有限测度.若 $\nu\ll\mu$，则存在一个非负函数
+$f_0\in L^1(X,\mathscr A,\mu)$，使得对一切非负可测函数 $f$，
+\[
+\int_X f\,\mathrm d\nu=\int_X f\,f_0\,\mathrm d\mu .
+\]
+特别地，对一切 $A\in\mathscr A$，
+\[
+\nu(A)=\int_A f_0\,\mathrm d\mu .
+\]
+（此时 $f_0=\frac{\mathrm d\nu}{\mathrm d\mu}$ 为 Radon--Nikodym 导数.）
+\end{theorem}
+
+
+
+
+% --- 定理 1.5.3（Radon–Nikodym 定理，测度版） ---
+\begin{theorem}[Radon--Nikodym]\label{thm:RN-measure}
+设 $(X,\mathscr A)$ 是可测空间，$\mu,\nu$ 是 $(X,\mathscr A)$ 上的 $\sigma$ 有限测度.若 $\nu\ll \mu$，则存在唯一的（按 $\mu$-a.e. 意义）非负 $\mathscr A$ 可测函数 $f_0$，使得：
+\begin{enumerate}
+  \item 对一切非负可测函数 $f$ 以及一切 $f\in L(X,\mathscr A,\nu)$，都有
+  \[
+     \int_{X} f\,\mathrm{d}\nu \;=\; \int_{X} f\,f_0\,\mathrm{d}\mu .
+  \]
+  \item 对一切 $A\in\mathscr A$，都有
+  \[
+     \nu(A) \;=\; \int_{A} f_0\,\mathrm{d}\mu .
+  \]
+\end{enumerate}
+\end{theorem}
+
+
+已知：若 $\varphi$ 为符号测度，则 $\int_X f\,\mathrm{d}\varphi = \int_X f\,\mathrm{d}\varphi^{+}-\int_X f\,\mathrm{d}\varphi^{-}$.由 R–N 定理与 Hahn 分解可得下述符号测度版定理.
+
+% --- 定理 1.5.4（Radon–Nikodym 定理，符号测度版） ---
+\begin{theorem}[Radon–Nikodym 定理，符号测度版]\label{thm:RN-signed}
+设 $(X,\mathscr A,\mu)$ 是 $\sigma$ 有限测度空间，$\varphi$ 是 $(X,\mathscr A)$ 上的 $\sigma$ 有限符号测度.若 $\varphi\ll \mu$，则存在（按 $\mu$-a.e. 意义唯一的）可测函数 $f_0$，使得：
+\begin{enumerate}
+  \item 对一切 $f\in L(X,\mathscr A,|\varphi|)$，都有
+  \[
+     \int_{X} f\,\mathrm{d}\varphi \;=\; \int_{X} f\,f_0\,\mathrm{d}\mu .
+  \]
+  \item 对一切 $A\in\mathscr A$，都有
+  \[
+     \varphi(A) \;=\; \int_{A} f_0\,\mathrm{d}\mu .
+  \]
+  \item 对一切 $A\in\mathscr A$，都有
+  \[
+     |\varphi|(A) \;=\; \int_{A} |f_0|\,\mathrm{d}\mu .
+  \]
+\end{enumerate}
+此外，$f_0$ 在 $\mu$-a.e. 意义下唯一.
+\end{theorem}
+
+% --- 推论 1.5.5（以全变差 |\varphi| 为参考测度的表述） ---
+\begin{corollary}\label{cor:RN-variation}
+设 $\varphi$ 是 $(X,\mathscr A)$ 上的 $\sigma$ 有限符号测度.则存在可测函数 $f_0$（按 $|\varphi|$-a.e. 意义唯一），使得：
+\begin{enumerate}
+  \item 对一切 $f\in L(X,\mathscr A,|\varphi|)$，
+  \[
+     \int_{X} f\,\mathrm{d}\varphi \;=\; \int_{X} f\,f_0\,\mathrm{d}|\varphi| .
+  \]
+  \item 对一切 $A\in\mathscr A$，
+  \[
+     \varphi(A) \;=\; \int_{A} f_0\,\mathrm{d}|\varphi| .
+  \]
+  \item \(
+     |f_0|=1 \quad \text{在 } |\varphi|\text{-a.e. 意义下}.
+  \)
+\end{enumerate}
+\end{corollary}
+
+
+
+
+\begin{theorem}[Lebesgue 分解]\label{thm:Lebesgue-decomposition}
+设 $(X,\mathscr A,\mu)$ 是 $\sigma$ 有限测度空间，$\nu$ 是 $(X,\mathscr A)$ 上的
+$\sigma$ 有限符号测度.则存在唯一的一对 $\sigma$ 有限符号测度 $\nu_1,\nu_2$ 使得
+\[
+  \nu \;=\; \nu_1+\nu_2,\qquad \nu_1 \ll \mu,\qquad \nu_2 \perp \mu .
+\]
+\end{theorem}
+
+
+
