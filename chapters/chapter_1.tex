@@ -3,7 +3,7 @@
 \begin{definition}[$\sigma$环和$\sigma$代数]
     设$X$是一个集合，$\mathscr{R}$是$X$的一些子集构成的非空的族，若$\mathscr{R}$满足下述条件:
 
-    （1）$A,B\in\mathscr{R}\Rightarrow A\backslash B\in\mathscr{R};$
+    （1）$A,B\in\mathscr{R}\Rightarrow A\setminus B\in\mathscr{R};$
 
     （2）$A_n\in\mathscr{R},n\in\mathbb{N}\Rightarrow \cup_{n=1}^\infty A_n\in\mathscr{R},$
 
@@ -12,7 +12,7 @@
 
 注意，$\sigma$环$\mathscr{R}$一定包含$\emptyset$，由于
 \begin{equation*}
-    \bigcap_{n=1}^\infty A_n=\bigcup_{n=1}^\infty A_n\setminus\bigcup_{n=1}^\infty\left(\bigcup_{k=1}^\infty A_k\backslash A_n\right),
+    \bigcap_{n=1}^\infty A_n=\bigcup_{n=1}^\infty A_n\setminus\bigcup_{n=1}^\infty\left(\bigcup_{k=1}^\infty A_k\setminus A_n\right),
 \end{equation*}
 因此$\mathscr{R}$对于可列交运算也封闭.但是因为$X$可以不在$\mathscr{R}$中，因此$\mathscr{R}$可以不对余运算封闭.
 
@@ -86,7 +86,7 @@ $$\mu(\overline{\lim}A_n)\geqslant\overline{\lim}\mu(A_n).$$
 \end{theorem}
 
 \begin{theorem}[Eropob]
-    设$(X,\mathscr{A},\mu)$是测度空间，$E\in\mathscr{A}$且$\mu(E)<\infty$. 设$f_n$是$E$上的可测的$\mu-a.e.$有限函数.若$\{f_n\}$在$E$上$\mu-a.e.$收敛，那么，对任意$\epsilon>0$，存在$A\subset E,A\in\mathscr{A}$，使得$\mu(E\backslash A)<\epsilon$并且$\{f_n\}$在$A$上一致收敛.
+    设$(X,\mathscr{A},\mu)$是测度空间，$E\in\mathscr{A}$且$\mu(E)<\infty$. 设$f_n$是$E$上的可测的$\mu-a.e.$有限函数.若$\{f_n\}$在$E$上$\mu-a.e.$收敛，那么，对任意$\epsilon>0$，存在$A\subset E,A\in\mathscr{A}$，使得$\mu(E\setminus A)<\epsilon$并且$\{f_n\}$在$A$上一致收敛.
 \end{theorem}
 
 
@@ -158,7 +158,129 @@ $|f_k|\le \varphi$（对所有 $k$），则
 
 
 
+\section{$L^p(X,\mathscr{A},\mu)$}
+\begin{definition}[$L^p$空间]
+设 $(X,\mathscr{A},\mu)$ 是测度空间，$f$ 表示 $X$ 上的广义实值 $\mathscr{A}$ 可测函数，$0<p<\infty$.
+定义
+\[
+L^p(X,\mathscr{A},\mu)=\bigl\{\,f:\ |f|^p\in L(X,\mathscr{A},\mu)\,\bigr\},
+\qquad
+\|f\|_{p}=\|f\|_{L^p(X,\mathscr{A},\mu)}
+=\left(\int_{X} |f|^{p}\, \mathrm{d}\mu \right)^{\!1/p}.
+\]
+本质上确界范数（$\infty$-范数）定义为
+\[
+\|f\|_{\infty}
+=\inf_{\mu(E)=0}\ \sup\{\,|f(x)|:\ x\in X\setminus E\,\},
+\qquad
+L^{\infty}(X,\mathscr{A},\mu)=\{\,f:\ \|f\|_{\infty}<\infty\,\}.
+\]
+\end{definition}
+
+为了估计$L^p$范数，我们有必要引入分布函数的概念.
+\begin{definition}[分布函数]
+    设$(X,\mathscr{A},\mu)$是测度空间，$f$是$\mu-a.e.$有限的可测函数，称
+    \begin{equation*}
+        \lambda(t):=\mu\left(\{x\in X:f(x)\geq t\}\right)~t\in\mathbb{R}
+    \end{equation*}
+    叫做$f$的分布函数. 显然$\lambda(t)$是单调递减且右连续的.
+\end{definition}
+
+\begin{theorem}
+    设$(X,\mathscr{A},\mu)$是测度空间，$f$为$\mu-a.e.$有限的非负可测函数，$\lambda$是其分布函数，则
+    \begin{equation*}
+        \int_X f\mathrm{d}\mu = \int_{(0,\infty)}\lambda(t)\mathrm{d}t
+    \end{equation*}
+    右端为Lebesgue积分.
+\end{theorem}
+这个定理告诉我们，通过分布函数，可以将抽象的测度空间中的积分转化为Lebesgue积分来计算.一个经典的例子就是概率空间中的分布函数来计算期望.
+
+\begin{corollary}
+    设$f\in L^p(X,\mathscr{A},\mu),0<p<\infty$，$\lambda$为$|f|$的分布函数，则
+    \begin{equation*}
+        \int_X|f|^p\mathrm{d}\mu = p\int_{(0,\infty)}t^{p-1}\lambda(t)\mathrm{d}t.
+    \end{equation*}
+\end{corollary}
+
+
+\section{符号测度}
+本节讨论符号测度的分解及其与测度的关系，引入绝对连续与奇异的概念.
+\subsection{符号测度的分解}
+
+\begin{definition}[正集、负集、零集]
+    设$\mu$是可测空间$(X,\mathscr{A})$上的符号测度. 如果$P\in\mathscr{A}$满足下述条件：
+    \begin{equation*}
+        \mu(P\cap E)\geq 0,~~\forall E\in\mathscr{A},
+    \end{equation*}
+    则称$P$是$\mu$的正集.$-\mu$的正集成为$\mu$的负集.既正又负的可测集叫做零集.
+\end{definition}
+
+\begin{theorem}[正集的存在性]
+     设$\mu$是可测空间$(X,\mathscr{A})$上的符号测度，$E\in\mathscr{A}$. 若$\mu(E)>0$，则存在$\mathscr{A}$可测集$S\subset E,\mu(S)>0$，且$S$是$\mu$的正集.
+\end{theorem}
+
+\begin{theorem}[Hahn分解]
+    设$\mu$是可测空间$(X,\mathscr{A})$上的符号测度. 那么，存在$P\in\mathscr{A}$，使得$P$为$\mu$的正集，$P^\complement$是$\mu$的负集. 并且在以下意义下是唯一的：若存在另一个Hahn分解$(P_1,P_1^\complement)$，则对于任意的$A\in\mathscr{A}$，有
+    \begin{equation*}
+        \mu(P_1\bigcap A)=\mu(P\bigcap A),\mu( P_1^\complement\bigcap A)=\mu( P^\complement\bigcap A).
+    \end{equation*}
+\end{theorem}
+
+
+\begin{definition}[正变差、负变差与全变差]
+设可测空间 $(X,\mathscr{A})$，$\mu$ 为其上的符号测度.对任意 $E\in\mathscr{A}$，定义
+\[
+\mu^{+}(E)=\sup_{A\in\mathscr{A}}\mu(A\cap E),\qquad
+\mu^{-}(E)=\sup_{A\in\mathscr{A}}\{-\mu(A\cap E)\},
+\]
+并令
+\[
+|\mu|(E)=\mu^{+}(E)+\mu^{-}(E).
+\]
+分别称为 $\mu$ 在 $E$ 上的正变差、负变差与全变差.
+\end{definition}
+
+
+\begin{theorem}[正变差与负变差是测度]
+    设$\mu$是可测空间$(X,\mathscr{A})$上的符号测度，若$P,P^\complement$分别为$\mu$的正集与负集，则对任意$E\in\mathscr{A}$，有
+    \begin{align*}
+        \mu^+(E)&=\mu(E\cap P),\\
+        \mu^-(E)&=-\mu\left(E\cap P^\complement\right).
+    \end{align*}
+\end{theorem}
+
+\begin{theorem}(Jordan分解)
+    设$\mu$是可测空间$(X,\mathscr{A})$上的符号测度，那么可以分解为两个测度的差，即
+    \begin{equation*}
+        \mu = \mu^+-\mu^-.
+    \end{equation*}
+\end{theorem}
+
+
+有了Jordan分解之后，我们定义符号测度上的抽象积分为
+\begin{definition}
+    若$f\in L(X,\mathscr{A},|\mu|)$，则定义$f$在$X$上关于$\mu$的积分为
+    \begin{equation*}
+        \int_X f\mathrm{d}\mu :=\int_X f \mathrm{d}\mu^+-\int_X f \mathrm{d}\mu^-.
+    \end{equation*}
+\end{definition}
 
 
 
+\section{绝对连续与奇异的概念}
+\begin{definition}[绝对连续]
+设 $(X,\mathscr A)$ 为可测空间，$\mu$ 与 $\nu$ 为其上的符号测度.若对一切
+$E\in\mathscr A$，都有
+\[
+|\mu|(E)=0 \ \Longrightarrow\ \nu(E)=0,
+\]
+则称 $\nu$ 关于 $\mu$ 绝对连续，记作 $\nu\ll\mu$.
+\end{definition}
 
+\begin{example}
+设 $(X,\mathscr A,\mu)$ 为测度空间，$f\in L^{1}(X,\mathscr A,\mu)$，并定义
+\[
+\nu(A)=\int_{A} f\,\mathrm d\mu,\qquad \forall\,A\in\mathscr A.
+\]
+则有 $\nu\ll\mu$.
+\end{example}
