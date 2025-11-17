@@ -4,14 +4,14 @@
 
 \subsection{拓扑空间}
 \begin{definition}[拓扑]
-    设 $X$ 是一个不空的集合。所谓 $X$ 上的一个拓扑，
+    设 $X$ 是一个不空的集合.所谓 $X$ 上的一个拓扑，
 是指 $X$ 的一个子集族 $\mathscr{T}$，它满足以下三个条件：
 
 \begin{enumerate}
   \item[(i)] $\varnothing \in \mathscr{T},\ X\in \mathscr{T}$；
   \item[(ii)] 若 $\{U_{\alpha}\}\subset \mathscr{T}$，则 $\bigcup_{\alpha} U_{\alpha}\in \mathscr{T}$；
   \item[(iii)] 若 $\{U_i : i=1,\ldots,m\}\subset \mathscr{T}$，则
-        $\displaystyle\bigcap_{i=1}^{m} U_i \in \mathscr{T}$。
+        $\displaystyle\bigcap_{i=1}^{m} U_i \in \mathscr{T}$.
 \end{enumerate}
 \end{definition}
 \noindent 注意：拓扑不需要对余运算封闭.
@@ -100,3 +100,63 @@ $f:X\to\mathbb{R}$ 满足：
 
 
 \section{局部紧的Hausdorff空间上的连续函数}
+\begin{definition}[局部紧空间]
+     拓扑空间 $X$ 称为\emph{局部紧}的，是指对任一
+$x\in X$，有开集 $U\ni x$，且 $\overline{U}$ 为紧集.
+\end{definition}
+
+显然，$\mathbb{R}^n$ 是局部紧的 Hausdorff 空间（依 Euclid 拓扑）.
+此外，紧的 Hausdorff 空间也是局部紧的.为书写简便起见，我们将局部紧的
+Hausdorff 空间记作 LCHS（Locally compact Hausdorff space）.
+LCHS 有如下的重要性质.
+
+
+\begin{theorem}
+设 $X$ 为 LCHS，紧集 $K\subset X$，开集 $U\subset X$，且 $K\subset U$，
+那么存在一开集 $V\subset X$，使得 $\overline{V}$ 为紧集，且
+\[
+K\subset V\subset \overline{V}\subset U.
+\]
+\end{theorem}
+\noindent 这里的重点是$\overline{V}$也在$U$中.因为$\overline{V}$作为LCHS的子空间，就是紧的Hausdorff空间，因此是正规的.因此，就可以存在连续函数的延拓定理.
+
+
+
+
+
+\begin{theorem}
+设 $X$ 为 LCHS，$K$ 为 $X$ 的紧集，$U$ 为 $X$ 的开集，且 $K\subset U$，
+那么存在一 $f\in C_c(X)$，使得
+\[
+\chi_K(x)\le f(x)\le \chi_U(x), \qquad x\in X,
+\]
+以及
+\[
+\operatorname{supp} f \subset U,
+\]
+其中 $\chi_E$ 表示集合 $E$ 的特征函数。
+\end{theorem}
+
+
+\begin{theorem}
+设 $X$ 为一 LCHS，$f\in C_c(X)$，以及
+\[
+\operatorname{supp} f \subset \bigcup_{i=1}^m U_i,
+\]
+其中每一 $U_i$ 为 $X$ 的开集，那么存在 $f_i\in C_c(X)$，
+$1\le i\le m$，使得
+\[
+f = \sum_{i=1}^m f_i,
+\qquad
+\operatorname{supp} f_i \subset U_i \quad (1\le i\le m).
+\]
+此外，若 $f\ge 0$，则 $f_i\ge 0\ (1\le i\le m)$。
+\end{theorem}
+
+\begin{theorem}[Tietze 延拓定理]
+设 $X$ 为 LCHS，且 $K$ 为 $X$ 的紧集。若 $f\in C(K)$，
+则存在 $\varphi\in C_c(X)$，使得 $\varphi$ 在 $K$ 上的限制
+\[
+\varphi\big|_K = f.
+\]
+\end{theorem}
