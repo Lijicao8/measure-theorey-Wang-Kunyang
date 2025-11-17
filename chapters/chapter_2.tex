@@ -70,3 +70,33 @@
 
 
 \subsection{连续映射}
+
+\begin{lemma}[Urysohn 引理]\label{thm:urysohn}
+设 $X$ 为正规的拓扑空间，$E$ 和 $F$ 为 $X$ 的闭集，且 $E\cap F=\varnothing$，
+则存在连续函数 $f:X\to[0,1]$，使得
+\[
+f(x)=
+\begin{cases}
+0, & x\in E,\\[0.3em]
+1, & x\in F.
+\end{cases}
+\]
+\end{lemma}
+
+
+
+\begin{theorem}[Urysohn 延拓定理]\label{thm:urysohn-extension}
+设 $X$ 是正规的拓扑空间，$F$ 是 $X$ 的闭子集，
+$\varphi:F\to\mathbb{R}$ 是有界连续函数，那么存在有界连续函数
+$f:X\to\mathbb{R}$ 满足：
+\[
+\forall x\in F,\ f(x)=\varphi(x);\qquad
+\sup\{\,|f(x)|:x\in X\,\}=\sup\{\,|\varphi(x)|:x\in F\,\}.
+\]
+\end{theorem}
+
+
+
+
+
+\section{局部紧的Hausdorff空间上的连续函数}
