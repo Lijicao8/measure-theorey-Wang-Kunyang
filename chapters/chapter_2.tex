@@ -134,7 +134,7 @@ K\subset V\subset \overline{V}\subset U.
 \[
 \operatorname{supp} f \subset U,
 \]
-其中 $\chi_E$ 表示集合 $E$ 的特征函数。
+其中 $\chi_E$ 表示集合 $E$ 的特征函数.
 \end{theorem}
 
 
@@ -150,13 +150,32 @@ f = \sum_{i=1}^m f_i,
 \qquad
 \operatorname{supp} f_i \subset U_i \quad (1\le i\le m).
 \]
-此外，若 $f\ge 0$，则 $f_i\ge 0\ (1\le i\le m)$。
+此外，若 $f\ge 0$，则 $f_i\ge 0\ (1\le i\le m)$.
 \end{theorem}
 
 \begin{theorem}[Tietze 延拓定理]
-设 $X$ 为 LCHS，且 $K$ 为 $X$ 的紧集。若 $f\in C(K)$，
+设 $X$ 为 LCHS，且 $K$ 为 $X$ 的紧集.若 $f\in C(K)$，
 则存在 $\varphi\in C_c(X)$，使得 $\varphi$ 在 $K$ 上的限制
 \[
 \varphi\big|_K = f.
 \]
 \end{theorem}
+
+
+
+
+\begin{definition}[拓扑基]
+    设 $(X,\mathscr{T})$ 为拓扑空间，$\mathscr{U}\subset\mathscr{T}$.如果任一 $A\in\mathscr{T}$ 皆可表示成 $\mathscr{U}$ 中元的并，则称 $\mathscr{U}$ 为 $(X,\mathscr{T})$ 的基.
+此外，若基 $\mathscr{U}$ 是可数集，那么就称 $X$ 为具有可数基
+$\mathscr{U}$ 的拓扑空间.
+\end{definition}
+
+
+\begin{theorem}
+    设 $X$ 为 LCHS.若 $X$ 有可数基 $\mathscr{U}$，则 $X$ 的每一开集可表示成可数个紧集的并集.
+\end{theorem}
+
+
+
+
+\section{Radon 测度与Riesz 表示定理}
