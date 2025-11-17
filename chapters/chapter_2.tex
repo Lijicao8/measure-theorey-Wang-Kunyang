@@ -1,7 +1,72 @@
-\documentclass[../master.tex]{subfiles}
-\begin{document}
+\chapter{测度与拓扑}
 
-\chapter{第2章标题}
-这里是正文…… 可单独用 latexmk 编译本章预览
+\section{拓扑空间与连续映射}
 
-\end{document}
+\subsection{拓扑空间}
+\begin{definition}[拓扑]
+    设 $X$ 是一个不空的集合。所谓 $X$ 上的一个拓扑，
+是指 $X$ 的一个子集族 $\mathscr{T}$，它满足以下三个条件：
+
+\begin{enumerate}
+  \item[(i)] $\varnothing \in \mathscr{T},\ X\in \mathscr{T}$；
+  \item[(ii)] 若 $\{U_{\alpha}\}\subset \mathscr{T}$，则 $\bigcup_{\alpha} U_{\alpha}\in \mathscr{T}$；
+  \item[(iii)] 若 $\{U_i : i=1,\ldots,m\}\subset \mathscr{T}$，则
+        $\displaystyle\bigcap_{i=1}^{m} U_i \in \mathscr{T}$。
+\end{enumerate}
+\end{definition}
+\noindent 注意：拓扑不需要对余运算封闭.
+
+
+\begin{definition}[开集、闭集、内部、闭包、紧性]
+    对于拓扑空间$(X,\mathscr{T})$，$\mathscr{T}$中元素被称作开集，开集的余集叫做闭集.
+    
+    \noindent 设$A\subset X,$
+    \begin{enumerate}
+        \item 内部$$\mathring{A}=\bigcup_{V\subset A,V\in\mathscr{T}}V.$$
+        \item 闭包$$\overline{A}=\bigcap_{F\supset A,F^\complement\in\mathscr{T}} F.$$
+        \item 紧集：任意开覆盖有有限子覆盖.
+    \end{enumerate}
+\end{definition}
+
+显然，紧集的闭子集也是紧集.但是紧集不一定是闭集，例如单点集永远是紧的，但可能不是闭集.例如对于集合$X=\{0,1\}$，以及拓扑$\mathscr{T}=\{\emptyset,\{1\},X\}$，单点集$\{1\}$就是开集.
+
+\begin{definition}[子空间拓扑]
+    设$\left\{X,\mathscr{T}\right\}$是拓扑空间，$Y$ 是$X$ 的 非 空 子 集 . 定 义 $\mathscr{T} ^\prime = \left \{ G\bigcap Y; \right .$ $G\in\mathscr{T}\}$,那么$,(Y,\mathscr{T}^\prime)$是拓扑空间，叫作$(X,\mathscr{T})$的子空间$,\mathscr{T}^\prime$叫作$\mathscr{T}$的子拓扑.
+\end{definition}
+
+
+\begin{definition}[Hausdorff空间与第二类分离性]
+    设$X$是拓扑空间，若对于$X$中任意不同的两点$x,y$，必存在不相交开集$U\cap V=\emptyset$使得$x\in U,y\in V$，则称$X$为Hausdorff空间或$T_2$空间.定义中所述的性质叫做第二类分离性，常叫做$T_2$公理.
+\end{definition}
+
+
+\begin{theorem}
+    在Hausdorff空间中，紧集一定是闭的.
+\end{theorem}
+\noindent 证明紧集的补集是开集即可，即对任意$y\in X\backslash K$，都存在开邻域$U_y\subset X\backslash K$.
+
+
+关于Hausdorff空间有如下重要的性质：任意互不相交的紧集能被一对互不相交的开集分离.
+\begin{theorem}
+    设$X$为 Hausdorff 空间，$K$和$L$为$X$的紧集，且$K\bigcap L=\varnothing$, 那么，存在两开集$U$和 V,使得
+    $$K\subset U,L\subset V,U\cap V=\emptyset.$$
+\end{theorem}
+
+\begin{corollary}
+    设$X$为 Hausdorff 空间.若$K$为$X$的紧集，$U_1$和$U_2$为$X$的开集，且 $K\subset U_1\bigcup U_2$,则存在紧集 $K_1$ 和 $K_2$,使得 $K_1\subset U_1,K_2\subset U_2$,以及$K=K_1\bigcup K_2.$
+\end{corollary}
+
+
+
+
+\begin{definition}[正规拓扑空间]
+    设$X$为拓扑空间，若$X$的任意一对互不相交的闭集$A\cap B = \emptyset$，存在互不相交的开集$U\cap V =\emptyset$，使得$A\subset U,B\subset B$，则称$X$为正规的拓扑空间.上述分离性叫做第四类分离性，常称为$T_4$公理.
+\end{definition}
+
+\begin{corollary}
+    紧的Hausdorff空间是正规的.
+\end{corollary}
+\noindent 正规性表述的是一种很强的分离性，也就是任意闭集都可以被开集分离，这在一般的$T_2$空间中是做不到的. 而紧空间的闭子集是紧的，所以紧Hausdorff空间中的闭集是紧的，可以被开集分离.
+
+
+\subsection{连续映射}
